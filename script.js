@@ -284,10 +284,10 @@ function gerarCarteirinha(nome, data, mae) {
     canvas.height = 1000;
     ctx.drawImage(img, 0, 0);
     ctx.fillStyle = "#307ab9";
-    ctx.font = "bold 37px 'LEMON MILK'";
-    ctx.fillText(nome, 100, 393);
-    ctx.fillText(formatarData(data), 100, 523);
-    ctx.fillText(mae, 100, 665);
+    ctx.font = "bold 45px 'LEMON MILK'";
+    ctx.fillText(nome, 100, 445);
+    ctx.fillText(formatarData(data), 100, 700);
+    ctx.fillText(mae, 100, 570);
     ctx.font = "normal 32px 'LEMON MILK'";
     ctx.fillText(gerarCodigoAleatorio(8), 100, 874);
 
