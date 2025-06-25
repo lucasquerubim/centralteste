@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Central de Exames - Dashboard</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Rajdhani:wght@700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="topo-inicial">
+      <img src="logo-central.png" alt="Logo Central de Exames" class="logo-central" />
+      <h1 class="titulo-inicial">Olá Carolina!</h1>
+    </div>
+    <nav class="menu">
+      <button class="menu-btn active" data-target="orcamento">Fazer Orçamento</button>
+      <button class="menu-btn" data-target="guia">Criar Guia</button>
+      <button class="menu-btn" data-target="carteirinha">Criar Carteirinha</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Tela 1: Fazer Orçamento -->
+    <section id="orcamento" class="tela active">
+      <h2>Fazer Orçamento</h2>
+      <div id="orcamento-form-container">
+        <label for="inputExame">Digite o nome do exame:</label>
+        <input type="text" id="inputExame" placeholder="Ex: Hemograma" oninput="sugerirExames()" autocomplete="off" />
+        <ul id="sugestoesExames" class="sugestoes-box"></ul>
+
+        <div id="resultadoOrc"></div>
+        <h3>Exames Selecionados</h3>
+        <ul id="listaSelecionadosOrc"></ul>
+        <p>Total: R$ <span id="totalOrc">0.00</span></p>
+        <button id="btnDownloadOrc" onclick="baixarPDFOrc()" disabled>📥 Baixar Orçamento (PDF)</button>
+      </div>
+    </section>
+
+    <!-- Tela 2: Criar Guia -->
+    <section id="guia" class="tela">
+      <h2>Criar Guia</h2>
+      <form id="form-guia">
+        <label>Nome completo do paciente:<br />
+          <input type="text" id="nomePacienteGuia" required />
+        </label>
+        <label>Dia do atendimento:<br />
+          <input type="date" id="dataAtendimentoGuia" required />
+        </label>
+        <label>Horário do atendimento:<br />
+          <input type="text" id="horaAtendimentoGuia" placeholder="Ex: das 7:00 às 12:00h" required />
+        </label>
+
+        <fieldset id="procedimentos-container">
+          <legend>Procedimentos</legend>
+          <button type="button" id="add-procedimento">Adicionar Procedimento</button>
+        </fieldset>
+
+        <label>Parceiro:<br />
+          <select id="selectParceiroGuia" required>
+            <!-- Parceiros serão carregados via JS -->
+          </select>
+        </label>
+
+        <button type="submit" class="btn-gerar-guia">Gerar Guia (PDF)</button>
+      </form>
+
+      <section id="guia-infos-fixas">
+        <p><strong>PARCEIRO ASSISTENCIAL</strong></p>
+        <p>Nome: Central de Exames</p>
+        <p>Telefone: (81)9 9875-0905</p>
+        <p>Endereço:</p>
+        <p><strong>ATENÇÃO:</strong></p>
+        <p>Documento de apresentação obrigatória</p>
+        <p>Documento sem valor fiscal e não dedutível no imposto de renda.</p>
+        <p>Retornos de consultas deverão ser agendados pelo usuário diretamente com a clínica.</p>
+      </section>
+    </section>
+
+    <!-- Tela 3: Criar Carteirinha -->
+    <section id="carteirinha" class="tela">
+      <h2>Criar Carteirinha</h2>
+      <form id="form-carteirinha">
+        <label>Nome completo do paciente:<br />
+          <input type="text" id="nomePacienteCarteirinha" required />
+        </label>
+        <label>Data de nascimento:<br />
+          <input type="date" id="dataNascimentoCarteirinha" required />
+        </label>
+        <label>Nome completo da mãe:<br />
+          <input type="text" id="nomeMaeCarteirinha" required />
+        </label>
+        <button type="submit" class="btn-gerar-carteirinha">Gerar Carteirinha (PNG)</button>
+      </form>
+
+      <canvas id="canvas-carteirinha" width="1445" height="1000" style="display:none;"></canvas>
+      <div id="carteirinha-preview"></div>
+    </section>
+  </main>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

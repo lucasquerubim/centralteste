@@ -1,0 +1,206 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #ffffff;
+  color: #333;
+  padding: 0 1rem;
+}
+
+/* Logo e saudação */
+header {
+  padding: 1rem 0;
+  text-align: center;
+}
+
+.logo {
+  width: 6cm;
+  height: auto;
+  margin: 1rem auto;
+  display: block;
+}
+
+.greeting {
+  font-family: 'LEMON MILK', sans-serif;
+  font-size: 2.2rem;
+  color: #faad26;
+  margin-bottom: 1rem;
+}
+
+/* Menu */
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.menu-btn {
+  background-color: #317ab9;
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.menu-btn.active,
+.menu-btn:hover {
+  background-color: #215d8f;
+}
+
+/* Seções */
+.tela {
+  display: none;
+  max-width: 900px;
+  margin: auto;
+  padding-bottom: 4rem;
+}
+
+.tela.active {
+  display: block;
+}
+
+/* Entradas */
+label {
+  display: block;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 0.6rem;
+  margin-top: 0.3rem;
+  border: 1px solid #ccc;
+  border-radius: 0.4rem;
+  font-size: 1rem;
+}
+
+/* Botões */
+button {
+  background-color: #317ab9;
+  color: white;
+  padding: 0.7rem 1.4rem;
+  border: none;
+  border-radius: 0.4rem;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+button:hover {
+  background-color: #215d8f;
+}
+
+/* Sugestões */
+.sugestoes-box {
+  list-style: none;
+  border: 1px solid #ccc;
+  border-radius: 0.4rem;
+  max-height: 150px;
+  overflow-y: auto;
+  margin-top: 0.3rem;
+  padding: 0.3rem;
+  background-color: #f9f9f9;
+}
+
+.sugestoes-box li {
+  padding: 0.4rem;
+  cursor: pointer;
+}
+
+.sugestoes-box li:hover {
+  background-color: #eee;
+}
+
+/* Cards */
+.card-exame {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  border-radius: 0.6rem;
+  margin-top: 1rem;
+}
+
+.card-exame h4 {
+  margin-bottom: 0.8rem;
+  color: #317ab9;
+}
+
+.parceiro {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.input-valor {
+  width: 120px;
+  padding: 0.4rem;
+  font-size: 1rem;
+}
+
+/* Lista resumo */
+#listaSelecionadosOrc {
+  list-style: disc;
+  padding-left: 1.2rem;
+  margin: 1rem 0;
+}
+
+/* Informações fixas guia */
+#guia-infos-fixas {
+  font-size: 0.9rem;
+  margin-top: 2rem;
+  background: #f4f4f4;
+  padding: 1rem;
+  border-radius: 0.6rem;
+  line-height: 1.5;
+}
+
+/* Carteirinha */
+#carteirinha-preview img {
+  max-width: 100%;
+  display: block;
+  margin: 1rem auto;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .menu-btn {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .greeting {
+    font-size: 1.6rem;
+  }
+
+  input,
+  select {
+    font-size: 1rem;
+  }
+
+  .input-valor {
+    width: 100%;
+  }
+
+  .parceiro {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
